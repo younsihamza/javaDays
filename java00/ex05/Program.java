@@ -24,11 +24,20 @@ public class Program {
                 }
             }
         }
-       
-        
     }
+
+    public static int checkAttendence(String student , String date, String[][] studentAttendance,int numberOfAttendance) {
+        for(int i = 0; i < numberOfAttendance; i++) {
+            if (date.equals(studentAttendance[i][1] + " " + studentAttendance[i][2]) && student.equals(studentAttendance[i][0])) {
+                return (studentAttendance[i][3].equals("NOT_HERE")? -1 : 1);
+            }
+        }
+        return 0;
+    }
+
     public static int findDay(String day) {
-        final String[] days = {"MO", "TU", "WE", "TH", "FR", "SA", "SU"};
+        // change days order because september start on a Tursday
+        final String[] days = {"TU", "WE", "TH", "FR", "SA", "SU","MO"}; 
         for(int i = 0; i < 7; i++) {
             if(days[i].equals(day)){
                 return i;
@@ -40,7 +49,7 @@ public class Program {
     public static void main(String[] args) {
         String[] studenTable = new String[10];
         String[][] classesTime =  new String[10][2];
-        String [][] studentAttendance = new String[40][3];
+        String [][] studentAttendance = new String[100][4];
         int numberOfAttendance = 0;
         int numberOfClasses = 0;
         int studentNumber = 0;
@@ -66,17 +75,40 @@ public class Program {
             classesTime[numberOfClasses][1] = myScanner.next();
         }
 
-        for(;numberOfAttendance < 40; numberOfAttendance++) {
+        for(;numberOfAttendance < 100; numberOfAttendance++) {
             studentAttendance[numberOfAttendance][0] = myScanner.next();
             if(studentAttendance[numberOfAttendance][0].equals(".")) {
                 break;
             }
             studentAttendance[numberOfAttendance][1] = myScanner.next();
             studentAttendance[numberOfAttendance][2] = myScanner.next();
+            studentAttendance[numberOfAttendance][3] = myScanner.next();
         }
         Program.sortClasses(classesTime, numberOfClasses);
-        for(int i = 0; i < numberOfClasses; i++) {
-            System.out.println(classesTime[i][0] + " |  " + classesTime[i][1]);
+        System.out.printf("%10s","");
+        for(int i = 0; i < 5; i++) {
+            for(int j = 0; j < numberOfClasses; j++) {
+                int numberPosition = Program.findDay(classesTime[j][1]) + 1  + 7 * i;
+                if (numberPosition  <= 30)
+                    System.out.printf("%1s:00%3s%3d|", classesTime[j][0] , classesTime[j][1] , numberPosition);
+            }
+        }
+        System.out.println("");
+        for(int k = 0; k < studentNumber; k++) {
+            System.out.printf("%10s",studenTable[k]);
+            for(int i = 0; i < 5; i++) {
+                for(int j = 0; j < numberOfClasses; j++) {
+                    int numberPosition = Program.findDay(classesTime[j][1]) + 1  + 7 * i;
+                    if (numberPosition  <= 30){
+                        int h = Program.checkAttendence(studenTable[k], classesTime[j][0] + " " + numberPosition, studentAttendance, numberOfAttendance);
+                        if(h != 0)
+                            System.out.printf("%10d|", h);
+                        else
+                            System.out.printf("%10s|", "");
+                    }
+                }
+            }
+            System.out.println("");
         }
     }
 }
