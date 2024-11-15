@@ -3,7 +3,7 @@ import java.util.UUID;
 
 
 public class Transaction {
-    private UUID Identifier;
+    private String Identifier;
     private User Recipient;
     private User Sender;
     private TransactionCategory transactionCategory;
@@ -21,6 +21,7 @@ public class Transaction {
         this.Recipient              = Recipient;
         this.transactionCategory    = transactionCategory;
         this.transfetAmount         = transfetAmount;
+        this.Identifier             = UUID.randomUUID().toString();
     
         if (transactionCategory == TransactionCategory.DEBIT && transfetAmount < 0 ){
             if(Sender.getBalance() > transfetAmount*-1){
@@ -35,7 +36,7 @@ public class Transaction {
         return transactionCategory;
     }
 
-    UUID getIdentifier(){
+    String getIdentifier(){
         return Identifier;
     }
 

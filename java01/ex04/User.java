@@ -30,6 +30,8 @@ public class User {
     void setBalance(double amount) {
         this.balance += amount;
     }
-    
-    
+
+    TransactionsList getTransactions() {
+        return this.userTransactions;
+    }
 } 

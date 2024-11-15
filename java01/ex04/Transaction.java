@@ -39,6 +39,7 @@ public class Transaction {
 
     String getIdentifier(){
         return Identifier;
+        
     }
 
     double getTransfetAmount() {
