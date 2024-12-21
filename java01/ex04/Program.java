@@ -14,7 +14,6 @@ public class Program {
         Transaction[] holdArray = transactionsHold.toArray();
         for(int i = 0 ; i < holdArray.length ; i++) {
             System.out.println(holdArray[i].getIdentifier());
-            
         }
     }
 }

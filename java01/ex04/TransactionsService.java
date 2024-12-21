@@ -1,3 +1,4 @@
+import java.util.UUID;
 public class TransactionsService {
     UserList users = null;
 
@@ -15,7 +16,7 @@ public class TransactionsService {
     }
 
     void performTransaction(Integer senderId, Integer recipientId, Integer amount) {
-        
+
     }
 
     Transaction[] userTransactions(Integer userId) {
@@ -26,6 +27,8 @@ public class TransactionsService {
         users.retrieveUserById(userId).getTransactions().removeTransactionById(transactionId);
     }
 
-    Transaction[] 
+    Transaction[] checkValidityTransactions() {
+        
+    }
 
 }

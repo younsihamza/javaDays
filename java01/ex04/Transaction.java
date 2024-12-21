@@ -24,9 +24,9 @@ public class Transaction {
         this.transfetAmount         = transfetAmount;
         this.Identifier             = Identifier;
         if (transactionCategory == TransactionCategory.DEBIT && transfetAmount < 0 ){
-            if(Sender.getBalance() > transfetAmount*-1){
+            if(Sender.getBalance() > transfetAmount * -1){
                 Sender.setBalance(transfetAmount);
-                Recipient.setBalance(transfetAmount*-1);
+                Recipient.setBalance(transfetAmount * -1);
             }
         }else if(transfetAmount > 0 && transactionCategory == TransactionCategory.CREDIT ){
             Recipient.setBalance(transfetAmount);

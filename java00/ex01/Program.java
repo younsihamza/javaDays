@@ -41,7 +41,7 @@ public class Program {
          }else {
             System.err.println(" - No valid input . you should enter valid integer");
             myObj.close();
-            System.exit(-1); 
+            System.exit(-1);
         }
         if (userNumber < 0 ) {
             System.err.println("IllegalArgument");
