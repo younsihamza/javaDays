@@ -23,13 +23,20 @@ public class MyThread extends Thread{
     }
     public void downloadFile(Map<Integer, String> link){
         Integer fileNumber = (Integer)link.keySet().toArray()[0];
-        System.out.println(this.getName() + " start download file number " + fileNumber);
-        BufferedInputStream file = new BufferedInputStream(new URL(link.get(fileNumber)).openStream());
-        FileOutputStream outfile = new FileOutputStream("file " + link.get(fileNumber));
-        byte[] data = new byte[1024];
-        int dataLen = -1;
-        while((dataLen = file.read(data,0,1024))!= -1) {
-            outfile.write(data,0,dataLen);
+        try {
+            URL urlObject = new URL(link.get(fileNumber));
+            BufferedInputStream file = new BufferedInputStream(urlObject.openStream());
+            FileOutputStream outfile = new FileOutputStream("file " + fileNumber);
+            byte[] data = new byte[1024];
+            int dataLen = -1;
+            System.out.println(this.getName() + " start download file number " + fileNumber);
+            while((dataLen = file.read(data,0,1024))!= -1) {
+                outfile.write(data,0,dataLen);
+            }
+            outfile.close();
+            System.out.println(this.getName()+ " finish download file number " + fileNumber);
+        } catch(Exception e) {
+            System.out.println(e.getMessage());
         }
     }
 }

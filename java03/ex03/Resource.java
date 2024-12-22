@@ -15,11 +15,16 @@ public class Resource {
         this.urls = new ArrayDeque<>();
         this.currentFileIndex = 0;
         File file = new File("files_urls.txt");
-        Scanner scanner  = new Scanner(file); 
-        while(scanner.hasNextLine()){
-            urls.add(scanner.nextLine());
+        try{
+            Scanner scanner  = new Scanner(file); 
+            while(scanner.hasNextLine()){
+                urls.add(scanner.nextLine());
+            }
+            scanner.close();
+        } catch(Exception e) {
+                System.out.println("ERROR: " + e.getMessage()
+            );
         }
-        scanner.close();
     }
     public synchronized Map<Integer, String> getLink() {
         if(urls.size() != 0){
