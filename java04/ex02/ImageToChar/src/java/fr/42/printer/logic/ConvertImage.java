@@ -9,6 +9,7 @@ import java.util.List;
 import javax.imageio.ImageIO;
 
 
+
 public class ConvertImage {
     private Integer width = 0;
     public  List<Integer> convertImageToArray(String imagePath) {
