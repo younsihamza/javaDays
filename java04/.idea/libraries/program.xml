@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="program">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/ex01/ImageToChar/target/program.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
