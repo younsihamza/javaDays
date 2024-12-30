@@ -9,3 +9,4 @@ jar    -cfm target/images-to-chars-printer.jar src/manifest.txt -C target/ft/42/
 echo "Running the program"
 java -jar target/images-to-chars-printer.jar --white RED --black BLACK 
 echo "Done"
+

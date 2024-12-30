@@ -1,0 +1,6 @@
+/workspaces/javaDays/java05/ex02/Chat/src/main/java/fr/42/chat/app/App.java
+/workspaces/javaDays/java05/ex02/Chat/src/main/java/fr/42/chat/models/Chatroom.java
+/workspaces/javaDays/java05/ex02/Chat/src/main/java/fr/42/chat/models/Message.java
+/workspaces/javaDays/java05/ex02/Chat/src/main/java/fr/42/chat/models/User.java
+/workspaces/javaDays/java05/ex02/Chat/src/main/java/fr/42/chat/repositories/MessagesRepository.java
+/workspaces/javaDays/java05/ex02/Chat/src/main/java/fr/42/chat/repositories/MessagesRepositoryJdbcImpl.java
