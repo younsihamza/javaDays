@@ -9,7 +9,7 @@ public class Message {
     private User author;
     private Chatroom room;
     private String text;
-    private LocalDateTime time;
+    private LocalDateTime dateTime;
     
     
     public Message(Long id, User author, Chatroom room, String text , LocalDateTime time) {
@@ -17,7 +17,7 @@ public class Message {
         this.author = author;
         this.room   = room;
         this.text   = text;
-        this.time   = time;
+        this.dateTime   = dateTime;
     }
     
     @Override
@@ -38,7 +38,7 @@ public class Message {
     @Override
     public String toString() {
         DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyy HH:mm");
-        return "message {" + "id='" + this.id + "', text='" + this.text + "', time='"+this.time.format(format) +"' }";
+        return "message {" + "id='" + this.id + "', text='" + this.text + "', time='"+this.dateTime.format(format) +"' }";
     }
     
     public void setId(Long id) {
@@ -61,7 +61,23 @@ public class Message {
         return text;
     }
 
-    public LocalDateTime getTime() {
-        return time;
+    public LocalDateTime getDateTime() {
+        return dateTime;
+    }
+
+    public void setAuthor(User author) {
+        this.author = author;
+    }
+
+    public void setRoom(Chatroom room) {
+        this.room = room;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public void setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
     }
 }

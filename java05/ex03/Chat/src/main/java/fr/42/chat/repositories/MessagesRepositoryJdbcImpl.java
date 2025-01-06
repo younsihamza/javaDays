@@ -3,6 +3,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Optional;
@@ -19,7 +20,7 @@ public class MessagesRepositoryJdbcImpl  implements MessagesRepository {
 
     public Optional <Message> findById(Long id) {
         String query = "SELECT * FROM message WHERE message_id=" + id ;
-        Message message = Optional.empty();
+        Optional<Message> message = Optional.empty();
         try {
             Connection connection = dataSource.getConnection();
             PreparedStatement statement = connection.prepareStatement(query);
@@ -76,6 +77,23 @@ public class MessagesRepositoryJdbcImpl  implements MessagesRepository {
         } catch(Exception e) {
             throw new NotSavedSubEntityException("ERROR : " + e.getMessage());
         }
-        
     }
+
+    public void update(Message message) {
+        try(Connection connection = this.dataSource.getConnection()) {
+
+            String query = "UPDATE Message SET message_text = ? , message_time = ? WHERE message_id = ?";
+            try(PreparedStatement statment =  connection.prepareStatement(query)) {
+                statment.setString(1, message.getText());
+                statment.setTimestamp(2, message.getDateTime() != null ? Timestamp.valueOf(message.getDateTime().toString())  : null);
+                statment.setLong(3, message.getId());                                                    
+                int result = statment.executeUpdate();
+                if(result == 0)
+                    throw new NotSavedSubEntityException("ERROR : not update happend on the recored in  database");
+            }
+        }catch(Exception e) {
+            throw new NotSavedSubEntityException("ERROR : " + e.getMessage());
+        }
+    }
+    
 }

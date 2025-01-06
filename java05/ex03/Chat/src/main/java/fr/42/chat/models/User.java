@@ -50,5 +50,4 @@ public class User {
     public List<Chatroom> getChatrooms() {
         return chatrooms;
     }
-
 }

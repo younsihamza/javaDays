@@ -1,7 +1,6 @@
 package app;
 import java.sql.Driver;
 import java.time.LocalDateTime;
-import java.util.Scanner;
 
 import javax.sql.DataSource;
 import models.*;
@@ -10,7 +9,7 @@ import java.util.*;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
-import models.Chatroom;
+import repository.MessagesRepository;
 import repository.MessagesRepositoryJdbcImpl;
 
 
@@ -23,13 +22,14 @@ public class App {
         config.setUsername("postgres");
         config.setPassword("postgres");
         HikariDataSource dataSource = new HikariDataSource(config); 
-        User creator = new User(1L, "user", "user", new ArrayList(), new ArrayList());
-        User author = creator;
-        Chatroom room = new Chatroom(1L, "room", creator, new ArrayList());
-        Message message = new Message(null, author, room, "Hello!", LocalDateTime.now());
-        MessagesRepositoryJdbcImpl messageJdbc = new MessagesRepositoryJdbcImpl(dataSource);
-        messageJdbc.save(message);
-        System.out.println("id : " + message.getId());
+        MessagesRepositoryJdbcImpl messagesRepository = new MessagesRepositoryJdbcImpl(dataSource);
+        Optional<Message> messageOptional = messagesRepository.findById(1l);
+        if (messageOptional.isPresent()) {
+            Message message = messageOptional.get();
+            message.setText("Bye");
+            message.setDateTime(null);
+            messagesRepository.update(message);
+        }
         dataSource.close();
     }
 }

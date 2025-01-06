@@ -19,7 +19,7 @@ public class MessagesRepositoryJdbcImpl  implements MessagesRepository {
 
     public Optional <Message> findById(Long id) {
         String query = "SELECT * FROM message WHERE message_id=" + id ;
-        Message message = Optional.empty();
+        Optional<Message> message = Optional.empty();
         try {
             Connection connection = dataSource.getConnection();
             PreparedStatement statement = connection.prepareStatement(query);
@@ -78,4 +78,5 @@ public class MessagesRepositoryJdbcImpl  implements MessagesRepository {
         }
         
     }
+   
 }
