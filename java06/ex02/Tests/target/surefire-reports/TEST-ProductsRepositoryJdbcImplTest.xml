@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="ProductsRepositoryJdbcImplTest" time="2.685" tests="2" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="ProductsRepositoryJdbcImplTest" time="2.2" tests="9" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -13,8 +13,9 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="/usr/local/sdkman/candidates/java/21.0.5-tem/lib"/>
-    <property name="sun.java.command" value="/workspaces/javaDays/java06/ex02/Tests/target/surefire/surefirebooter-20250110191830007_3.jar /workspaces/javaDays/java06/ex02/Tests/target/surefire 2025-01-10T19-18-29_823-jvmRun1 surefire-20250110191830007_1tmp surefire_0-20250110191830007_2tmp"/>
+    <property name="sun.java.command" value="/workspaces/javaDays/java06/ex02/Tests/target/surefire/surefirebooter-20250111142229245_3.jar /workspaces/javaDays/java06/ex02/Tests/target/surefire 2025-01-11T14-22-29_120-jvmRun1 surefire-20250111142229245_1tmp surefire_0-20250111142229245_2tmp"/>
     <property name="jdk.debug" value="release"/>
+    <property name="test" value="ProductsRepositoryJdbcImplTest#*"/>
     <property name="surefire.test.class.path" value="/workspaces/javaDays/java06/ex02/Tests/target/test-classes:/workspaces/javaDays/java06/ex02/Tests/target/classes:/home/vscode/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.11.0/junit-jupiter-params-5.11.0.jar:/home/vscode/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/home/vscode/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.11.2/junit-jupiter-engine-5.11.2.jar:/home/vscode/.m2/repository/org/junit/platform/junit-platform-engine/1.11.2/junit-platform-engine-1.11.2.jar:/home/vscode/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.11.4/junit-jupiter-api-5.11.4.jar:/home/vscode/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/home/vscode/.m2/repository/org/junit/platform/junit-platform-commons/1.11.4/junit-platform-commons-1.11.4.jar:/home/vscode/.m2/repository/org/springframework/spring-jdbc/6.2.1/spring-jdbc-6.2.1.jar:/home/vscode/.m2/repository/org/springframework/spring-beans/6.2.1/spring-beans-6.2.1.jar:/home/vscode/.m2/repository/org/springframework/spring-core/6.2.1/spring-core-6.2.1.jar:/home/vscode/.m2/repository/org/springframework/spring-jcl/6.2.1/spring-jcl-6.2.1.jar:/home/vscode/.m2/repository/org/springframework/spring-tx/6.2.1/spring-tx-6.2.1.jar:/home/vscode/.m2/repository/org/hsqldb/hsqldb/2.7.4/hsqldb-2.7.4.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="/home/vscode"/>
@@ -26,9 +27,9 @@
     <property name="basedir" value="/workspaces/javaDays/java06/ex02/Tests"/>
     <property name="java.vm.compressedOopsMode" value="32-bit"/>
     <property name="line.separator" value="&#10;"/>
-    <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
-    <property name="surefire.real.class.path" value="/workspaces/javaDays/java06/ex02/Tests/target/surefire/surefirebooter-20250110191830007_3.jar"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="/workspaces/javaDays/java06/ex02/Tests/target/surefire/surefirebooter-20250111142229245_3.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="21.0.5+11-LTS"/>
     <property name="user.name" value="vscode"/>
@@ -55,15 +56,51 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="testFindAll" classname="ProductsRepositoryJdbcImplTest" time="2.569">
-    <system-err><![CDATA[Jan 10, 2025 7:18:34 PM org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory initDatabase
+  <testcase name="testFindAll" classname="ProductsRepositoryJdbcImplTest" time="1.544">
+    <system-err><![CDATA[Jan 11, 2025 2:22:31 PM org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory initDatabase
 INFO: Starting embedded database: url='jdbc:hsqldb:mem:testdb', username='sa'
 ]]></system-err>
   </testcase>
-  <testcase name="testFindId" classname="ProductsRepositoryJdbcImplTest" time="0.095">
-    <system-out><![CDATA[PC  0 100
+  <testcase name="testSave" classname="ProductsRepositoryJdbcImplTest" time="0.086">
+    <system-out><![CDATA[Product [id=6, name=car, price=10000]
+Product [id=6, name=car, price=10000]
 ]]></system-out>
-    <system-err><![CDATA[Jan 10, 2025 7:18:36 PM org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory initDatabase
+    <system-err><![CDATA[Jan 11, 2025 2:22:32 PM org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory initDatabase
+INFO: Starting embedded database: url='jdbc:hsqldb:mem:testdb', username='sa'
+]]></system-err>
+  </testcase>
+  <testcase name="testDelete(long)[1]" classname="ProductsRepositoryJdbcImplTest" time="0.071">
+    <system-err><![CDATA[Jan 11, 2025 2:22:32 PM org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory initDatabase
+INFO: Starting embedded database: url='jdbc:hsqldb:mem:testdb', username='sa'
+]]></system-err>
+  </testcase>
+  <testcase name="testDelete(long)[2]" classname="ProductsRepositoryJdbcImplTest" time="0.059">
+    <system-err><![CDATA[Jan 11, 2025 2:22:32 PM org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory initDatabase
+INFO: Starting embedded database: url='jdbc:hsqldb:mem:testdb', username='sa'
+]]></system-err>
+  </testcase>
+  <testcase name="testDelete(long)[3]" classname="ProductsRepositoryJdbcImplTest" time="0.066">
+    <system-err><![CDATA[Jan 11, 2025 2:22:32 PM org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory initDatabase
+INFO: Starting embedded database: url='jdbc:hsqldb:mem:testdb', username='sa'
+]]></system-err>
+  </testcase>
+  <testcase name="testDelete(long)[4]" classname="ProductsRepositoryJdbcImplTest" time="0.027">
+    <system-err><![CDATA[Jan 11, 2025 2:22:32 PM org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory initDatabase
+INFO: Starting embedded database: url='jdbc:hsqldb:mem:testdb', username='sa'
+]]></system-err>
+  </testcase>
+  <testcase name="testDelete(long)[5]" classname="ProductsRepositoryJdbcImplTest" time="0.025">
+    <system-err><![CDATA[Jan 11, 2025 2:22:32 PM org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory initDatabase
+INFO: Starting embedded database: url='jdbc:hsqldb:mem:testdb', username='sa'
+]]></system-err>
+  </testcase>
+  <testcase name="testFindId" classname="ProductsRepositoryJdbcImplTest" time="0.03">
+    <system-err><![CDATA[Jan 11, 2025 2:22:32 PM org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory initDatabase
+INFO: Starting embedded database: url='jdbc:hsqldb:mem:testdb', username='sa'
+]]></system-err>
+  </testcase>
+  <testcase name="testUpdate" classname="ProductsRepositoryJdbcImplTest" time="0.036">
+    <system-err><![CDATA[Jan 11, 2025 2:22:32 PM org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory initDatabase
 INFO: Starting embedded database: url='jdbc:hsqldb:mem:testdb', username='sa'
 ]]></system-err>
   </testcase>

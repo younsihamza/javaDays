@@ -3,3 +3,4 @@ repository/ProductsRepositoryJdbcImpl.class
 numbers/NumberWorker$IllegalNumberException.class
 repository/ProductRepository.class
 numbers/NumberWorker.class
+repository/ProductsRepositoryJdbcImpl$NoDatabaseNotUpdateIt.class

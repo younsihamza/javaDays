@@ -55,7 +55,7 @@ public class ProductsRepositoryJdbcImpl implements ProductRepository{
                 }
             }
         }catch(Exception e) {
-            e.printStackTrace();
+            throw new NoDatabaseNotUpdateIt("object not found");
         }
         return product;
     }
@@ -69,7 +69,6 @@ public class ProductsRepositoryJdbcImpl implements ProductRepository{
                     statment.setLong(3, product.getId());
                 int rs = statment.executeUpdate();
 
-                
             }
         }catch(Exception e) {
             e.printStackTrace();
@@ -83,22 +82,37 @@ public class ProductsRepositoryJdbcImpl implements ProductRepository{
                 statement.setString(1, product.getName());
                 statement.setLong(2, product.getPrice());
                 int rs = statement.executeUpdate();
-                if(rs != 0)
-                    product.setId(Long.valueOf(rs));
+                if(rs == 0)
+                    throw new NoDatabaseNotUpdateIt("data base not update it ");
+                try(ResultSet resultSource = statement.getGeneratedKeys()){
+                    if(resultSource.next())
+                        product.setId(resultSource.getLong(1));
+                    else 
+                        throw new NoDatabaseNotUpdateIt("data base not update it ");
+                }  
             }
         }catch(Exception e) {
-            e.printStackTrace();
+            throw new NoDatabaseNotUpdateIt(e.getMessage());
         }
     }
 
-    public void delete(Long id) {
+    public void delete(Long id){
         try(Connection connection = dataSource.getConnection()) {
             String query = "DELETE FROM product WHERE id = ?";
             try(PreparedStatement statment = connection.prepareStatement(query)){
+                statment.setLong(1, id);
                 int result = statment.executeUpdate();
+                if(result == 0)
+                    throw new NoDatabaseNotUpdateIt("No rows affected, ID not found");
             }
         } catch(Exception e) {
-            e.printStackTrace();
+            throw new NoDatabaseNotUpdateIt(e.getMessage());
+        }
+    }
+
+    public class  NoDatabaseNotUpdateIt extends RuntimeException {
+        NoDatabaseNotUpdateIt(String message){
+            super(message);
         }
     }
 }

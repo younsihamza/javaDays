@@ -41,6 +41,13 @@ public class Product {
             Objects.equals(name, other.name) &&
             Objects.equals(price, other.price);
     }
+    @Override
+    public String toString() {
+        return "Product [id=" + id + ", name=" + name + ", price=" + price + "]";
+    }
 
-    
 }
+
+
+// - small cadges
+// - 
