@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: ProductsRepositoryJdbcImplTest
 -------------------------------------------------------------------------------
-Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.200 s -- in ProductsRepositoryJdbcImplTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.361 s -- in ProductsRepositoryJdbcImplTest

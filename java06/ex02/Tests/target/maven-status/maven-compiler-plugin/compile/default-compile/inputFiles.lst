@@ -1,4 +1,8 @@
+/workspaces/javaDays/java06/ex02/Tests/src/main/java/fr/42/exceptions/AlreadyAuthenticatedException.java
 /workspaces/javaDays/java06/ex02/Tests/src/main/java/fr/42/models/Product.java
+/workspaces/javaDays/java06/ex02/Tests/src/main/java/fr/42/models/User.java
 /workspaces/javaDays/java06/ex02/Tests/src/main/java/fr/42/numbers/NumberWorker.java
 /workspaces/javaDays/java06/ex02/Tests/src/main/java/fr/42/repositories/ProductRepository.java
 /workspaces/javaDays/java06/ex02/Tests/src/main/java/fr/42/repositories/ProductsRepositoryJdbcImpl.java
+/workspaces/javaDays/java06/ex02/Tests/src/main/java/fr/42/repositories/UsersRepository.java
+/workspaces/javaDays/java06/ex02/Tests/src/main/java/fr/42/services/UserServiceImpl.java

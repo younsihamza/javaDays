@@ -1,6 +1,10 @@
 models/Product.class
+models/User.class
+exceptions/AlreadyAuthenticatedException.class
+services/UserServiceImpl.class
 repository/ProductsRepositoryJdbcImpl.class
-numbers/NumberWorker$IllegalNumberException.class
 repository/ProductRepository.class
-numbers/NumberWorker.class
 repository/ProductsRepositoryJdbcImpl$NoDatabaseNotUpdateIt.class
+numbers/NumberWorker$IllegalNumberException.class
+repository/UsersRepository.class
+numbers/NumberWorker.class

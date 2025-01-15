@@ -1,3 +1,4 @@
 ProductsRepositoryJdbcImplTest.class
+UserServiceImplTest.class
 EmbeddedDataSourceTest.class
 NumberWorkerTest.class
